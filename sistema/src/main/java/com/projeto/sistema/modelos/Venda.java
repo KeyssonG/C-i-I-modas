@@ -3,29 +3,23 @@ package com.projeto.sistema.modelos;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
-import java.text.DecimalFormat;
 import java.util.Date;
 
 @Entity
 public class Venda implements Serializable {
     private static final long serialVersionUID = 1L;
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-
     private String obs;
-
     private double valorTotal = 0.00;
     private double quantidadeTotal = 0.00;
-
     private Date dataVenda = new Date();
-
     @ManyToOne
     private Cliente cliente;
-
     @ManyToOne
     private Funcionario funcionario;
+
 
     public long getId() {
         return id;
@@ -48,7 +42,7 @@ public class Venda implements Serializable {
     }
 
     public void setValorTotal(double valorTotal) {
-        this.valorTotal = formatarValor(valorTotal);
+        this.valorTotal = valorTotal;
     }
 
     public double getQuantidadeTotal() {
@@ -56,7 +50,7 @@ public class Venda implements Serializable {
     }
 
     public void setQuantidadeTotal(double quantidadeTotal) {
-        this.quantidadeTotal = formatarValor(quantidadeTotal);
+        this.quantidadeTotal = quantidadeTotal;
     }
 
     public Date getDataVenda() {
@@ -81,11 +75,5 @@ public class Venda implements Serializable {
 
     public void setFuncionario(Funcionario funcionario) {
         this.funcionario = funcionario;
-    }
-
-    // Método para formatar os valores
-    private double formatarValor(double valor) {
-        DecimalFormat df = new DecimalFormat("#.00");
-        return Double.parseDouble(df.format(valor));
     }
 }
