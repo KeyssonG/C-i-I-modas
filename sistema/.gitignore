@@ -1,33 +1,44 @@
-HELP.md
-target/
-!.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
+# Diretórios de build
+/bin/
+/target/
 
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
+# Diretórios do Maven
+/.mvn/
+/.idea/
+/.vscode/
 
-### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
-*.ipr
+# Arquivos do Maven
+mvnw
+mvnw.cmd
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
 
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
+# Arquivos do Eclipse
+/.classpath
+/.project
+/.settings/
 
-### VS Code ###
-.vscode/
+# Arquivos do IntelliJ IDEA
+/.idea/
+/*.iml
+/out/
+
+# Arquivos do NetBeans
+/nbproject/
+
+# Arquivos de log
+*.log
+
+# Arquivos temporários
+*.swp
+*~
+
+# Arquivos do sistema operacional
+.DS_Store
+Thumbs.db
+
+# Arquivos de configuração do sistema
+/.classpath
+/.project
+/.settings/
