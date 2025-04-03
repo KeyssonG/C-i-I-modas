@@ -7,20 +7,23 @@ WORKDIR /app
 # Copiar os arquivos do projeto
 COPY sistema /app/sistema
 
-# Definir o diretório correto para o Maven
-WORKDIR /app/sistema
-
-# Rodar o comando Maven para build da aplicação
-RUN mvn clean package
+# Rodar o build
+RUN mvn -f /app/sistema/pom.xml clean package
 
 # Renomear o arquivo JAR para cii-modas.jar
-RUN mv /app/sistema/target/sistema-0.0.1-SNAPSHOT.jar /app/cii-modas.jar
+RUN mv /app/sistema/target/*.jar /app/sistema/target/cii-modas.jar
 
-# Etapa 2: Criar imagem final apenas com o JAR
-FROM alpine:latest
+# Etapa 2: Imagem de execução
+FROM amazoncorretto:21 AS runtime
 
-# Definir o diretório de trabalho
+# Defina o diretório de trabalho
 WORKDIR /app
 
 # Copiar o JAR gerado da etapa de build
-COPY --from=builder /app/cii-modas.jar /app/cii-modas.jar
+COPY --from=builder /app/sistema/target/cii-modas.jar /app/cii-modas.jar
+
+# Expor a porta da aplicação
+EXPOSE 8083
+
+# Comando de inicialização
+CMD ["java", "-jar", "/app/cii-modas.jar"]
