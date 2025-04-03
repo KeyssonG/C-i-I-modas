@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: cii-modas-container
-          image: cii-modas:latest  # Usando a imagem local
-          imagePullPolicy: Never
+          image: keyssong/cii-modas:latest  # 🔹 Buscar no Docker Hub
+          imagePullPolicy: Always           # 🔹 Sempre buscar a versão mais recente
           ports:
             - containerPort: 8083
