@@ -15,5 +15,6 @@ spec:
       containers:
         - name: cii-modas-container
           image: cii-modas:latest  # Usando a imagem local
+          imagePullPolicy: Never
           ports:
             - containerPort: 8083
