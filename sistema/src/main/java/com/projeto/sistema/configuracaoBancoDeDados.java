@@ -1,14 +1,14 @@
 package com.projeto.sistema;
 
 
-import javax.sql.DataSource;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.vendor.Database;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
+
+import javax.sql.DataSource;
 
 @Configuration
 public class configuracaoBancoDeDados {
@@ -18,7 +18,7 @@ public class configuracaoBancoDeDados {
         dataSource.setDriverClassName("org.postgresql.Driver"); //declara as configurações de acesso
         dataSource.setUrl("jdbc:postgresql://localhost:5432/loja");
         dataSource.setUsername("postgres");//usuario
-        dataSource.setPassword("postgres");//senha
+        dataSource.setPassword("postgresql");//senha
         return dataSource;
     }
 
